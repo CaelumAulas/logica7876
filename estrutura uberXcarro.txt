@@ -1,0 +1,9 @@
+Carro X Uber (cabeçalho)
+
+Uber: (cabeçalho)
+Preço total: R$ 20,57
+
+Carro: (cabeçalho)
+Preço do combustível no trajeto: R$ 7,32
+Preço do estacionamento: R$ 15,00
+Preço total: R$ 22,32
