@@ -1,12 +1,10 @@
 <h3>Carro X Uber</h3>
 
 <h4>Uber</h4>
+<!-- importando função recebeNumeroDecimal() -->
+<script src="recebeNumeroDecimal.js"></script>
+<script src="http://192.168.1.148:8080/libRelogio.js"></script>
 <script>
-//criando a função pra guardar lógica
-function recebeNumeroDecimal() { 
-    return parseFloat(prompt(mensagem).replace(",","."))
-}
-var mensagem
 //chamando a função pra pedir a distância
 mensagem = "Digite a distância em km"
 var distancia = recebeNumeroDecimal()
@@ -15,8 +13,10 @@ var tempoEmHoras = distancia/velocidadeMedia
 var tempoEmMinutos = tempoEmHoras*60
 
 var precoTotalUber = 2 + (1.4*distancia) + (0.26*tempoEmMinutos)
-
+tempo = tempoEmMinutos
 document.write(`
+Tempo: ${formataRelogio()}
+<br>
 Preço total: R$ ${precoTotalUber.toFixed(2).replace(".",",")}
 `)
 </script>
