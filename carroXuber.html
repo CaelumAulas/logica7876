@@ -1,16 +1,37 @@
 <h3>Carro X Uber</h3>
 
 <h4>Uber</h4>
-Preço total: R$ 20,57
+<script>
+//criando a função pra guardar lógica
+function recebeNumeroDecimal() { 
+    return parseFloat(prompt(mensagem).replace(",","."))
+}
+var mensagem
+//chamando a função pra pedir a distância
+mensagem = "Digite a distância em km"
+var distancia = recebeNumeroDecimal()
+var velocidadeMedia = 30
+var tempoEmHoras = distancia/velocidadeMedia
+var tempoEmMinutos = tempoEmHoras*60
 
+var precoTotalUber = 2 + (1.4*distancia) + (0.26*tempoEmMinutos)
+
+document.write(`
+Preço total: R$ ${precoTotalUber.toFixed(2).replace(".",",")}
+`)
+</script>
 <h4>Carro</h4>
 <script>
-var distancia = parseFloat(prompt("Digite a distância em km").replace(",","."))
-var consumo = parseFloat(prompt("Digite o consumo em km/l").replace(",","."))
-var precoLitro = parseFloat(prompt("Digite o preço do combustível no posto").replace(",","."))
+//chamando a função pra pedir o consumo
+mensagem = "Digite o consumo em km/l"
+var consumo = recebeNumeroDecimal()
+//chamando a função pra pedir o preço por litro
+mensagem = "Digite o preço do combustível no posto"
+var precoLitro = recebeNumeroDecimal()
 var precoCombustivelTrajeto = distancia*precoLitro/consumo
-
-var precoEstacionamento = parseFloat(prompt("Digite o preço do estacionamento").replace(",","."))
+//chamando a função pra pedir o preço do estacionamento
+mensagem = "Digite o preço do estacionamento"
+var precoEstacionamento = recebeNumeroDecimal()
 var precoTotalCarro = precoCombustivelTrajeto + precoEstacionamento
 
 document.write(`
