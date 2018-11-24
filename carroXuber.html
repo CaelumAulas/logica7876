@@ -5,15 +5,17 @@ Preço total: R$ 20,57
 
 <h4>Carro</h4>
 <script>
-var precoCombustivel = parseFloat(prompt("Digite o preço do combustível no trajeto"))
-var precoEstacionamento = parseFloat(prompt("Digite o preço do estacionamento"))
-var precoTotalCarro = precoCombustivel + precoEstacionamento
+var distancia = parseFloat(prompt("Digite a distância em km").replace(",","."))
+var consumo = parseFloat(prompt("Digite o consumo em km/l").replace(",","."))
+var precoLitro = parseFloat(prompt("Digite o preço do combustível no posto").replace(",","."))
+var precoCombustivelTrajeto = distancia*precoLitro/consumo
 
-document.write("Preço do combustível no trajeto: R$ "+
-                precoCombustivel.toFixed(2).replace(".",","))
+var precoEstacionamento = parseFloat(prompt("Digite o preço do estacionamento").replace(",","."))
+var precoTotalCarro = precoCombustivelTrajeto + precoEstacionamento
+
+document.write("Preço do combustível no trajeto: R$ "+ precoCombustivelTrajeto.toFixed(2).replace(".",","))
 document.write("<br>")
-document.write("Preço do estacionamento: R$ "+
-                precoEstacionamento.toFixed(2).replace(".",","))
+document.write("Preço do estacionamento: R$ "+precoEstacionamento.toFixed(2).replace(".",","))
 document.write("<br>")
 document.write("Preço total: R$ " + precoTotalCarro.toFixed(2).replace(".",","))
 </script>
