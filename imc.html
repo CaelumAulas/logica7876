@@ -1,7 +1,13 @@
 
 <script>
-    var peso = prompt("Digite o seu peso")
-    var altura = prompt("Digite a sua altura")
+    var mensagem
+    function recebeNumeroDecimal() { 
+        return parseFloat(prompt(mensagem).replace(",","."))
+    }
+    mensagem = "Digite o seu peso"
+    var peso = recebeNumeroDecimal()
+    mensagem = "Digite a sua altura"
+    var altura = recebeNumeroDecimal()
     var imc = peso/(altura*altura)
 
     document.write("O IMC é " + imc.toFixed(2))
