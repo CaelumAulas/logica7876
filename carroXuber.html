@@ -1,0 +1,19 @@
+<h3>Carro X Uber</h3>
+
+<h4>Uber</h4>
+Preço total: R$ 20,57
+
+<h4>Carro</h4>
+<script>
+var precoCombustivel = parseFloat(prompt("Digite o preço do combustível no trajeto"))
+var precoEstacionamento = parseFloat(prompt("Digite o preço do estacionamento"))
+var precoTotalCarro = precoCombustivel + precoEstacionamento
+
+document.write("Preço do combustível no trajeto: R$ "+
+                precoCombustivel.toFixed(2).replace(".",","))
+document.write("<br>")
+document.write("Preço do estacionamento: R$ "+
+                precoEstacionamento.toFixed(2).replace(".",","))
+document.write("<br>")
+document.write("Preço total: R$ " + precoTotalCarro.toFixed(2).replace(".",","))
+</script>
