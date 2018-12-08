@@ -1,7 +1,6 @@
 <meta charset="utf-8">
 
 <h3>Cadastro Academia</h3>
-
 <script src="recebeNumeroDecimal.js"></script>
 <!-- importando função de cálculo de idade -->
 <script src="http://192.168.1.149:8080/libIdade.js"></script>
@@ -9,16 +8,19 @@
 var nome = prompt("Digite o nome")
 var altura = recebeNumeroDecimal("Digite a altura em metros")
 var peso = recebeNumeroDecimal("Digite o peso em quilos")
-//var dataNascimento = prompt("Digite a data de nascimento (dd/mm/aaaa)")
-var diaNascimento = recebeNumeroDecimal("Digite o dia de nascimento em número")
-var mesNascimento = recebeNumeroDecimal("Digite o mês de nascimento em número")
-var anoNascimento = recebeNumeroDecimal("Digite o ano de nascimento em número de quatro dígitos")
+
+var dataNascimento = prompt("Digite a data de nascimento (dd/mm/aaaa)")
+var dataSeparada = dataNascimento.split("/")
+
+var diaNascimento = dataSeparada[0]
+var mesNascimento = dataSeparada[1]
+var anoNascimento = dataSeparada[2]
 
 var idade = calculaIdade(diaNascimento,mesNascimento,anoNascimento)
 
 document.write("Nome: " + nome)
 document.write("<br>Altura: "+ altura.toFixed(2).replace(".",",") + "m")
 document.write("<br>Peso: "+ peso.toFixed(2).replace(".",",") + "kg")
-//document.write("<br>Data de Nascimento: "+ dataNascimento)
+document.write("<br>Data de Nascimento: "+ dataNascimento)
 document.write("<br>Idade: "+idade+"anos")
 </script>
