@@ -1,0 +1,16 @@
+<meta charset="utf-8">
+
+<h3>Cadastro Academia</h3>
+
+<script src="recebeNumeroDecimal.js"></script>
+<script>
+var nome = prompt("Digite o nome")
+var altura = recebeNumeroDecimal("Digite a altura em metros")
+var peso = recebeNumeroDecimal("Digite o peso em quilos")
+var dataNascimento = prompt("Digite a data de nascimento (dd/mm/aaaa)")
+
+document.write("Nome: " + nome)
+document.write("<br>Altura: "+ altura.toFixed(2).replace(".",",") + "m")
+document.write("<br>Peso: "+ peso.toFixed(2).replace(".",",") + "kg")
+document.write("<br>Data de Nascimento: "+ dataNascimento)
+</script>
