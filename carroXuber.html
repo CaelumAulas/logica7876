@@ -6,14 +6,14 @@
 <script src="http://192.168.1.149:8080/libRelogio.js"></script>
 <script>
 //chamando a função pra pedir a distância
-mensagem = "Digite a distância em km"
-var distancia = recebeNumeroDecimal()
+//mensagem = "Digite a distância em km"
+var distancia = recebeNumeroDecimal("Digite a distância em km")
 var velocidadeMedia = 30
 var tempoEmHoras = distancia/velocidadeMedia
 var tempoEmMinutos = tempoEmHoras*60
 
 var precoTotalUber = 2 + (1.4*distancia) + (0.26*tempoEmMinutos)
-tempo = tempoEmMinutos
+
 document.write(`
 Tempo: ${formataRelogio(tempoEmMinutos)}
 <br>
@@ -23,19 +23,16 @@ Preço total: R$ ${precoTotalUber.toFixed(2).replace(".",",")}
 <h4>Carro</h4>
 <script>
 //chamando a função pra pedir o consumo
-mensagem = "Digite o consumo em km/l"
-var consumo = recebeNumeroDecimal()
+var consumo = recebeNumeroDecimal("Digite o consumo em km/l")
 //chamando a função pra pedir o preço por litro
-mensagem = "Digite o preço do combustível no posto"
-var precoLitro = recebeNumeroDecimal()
+var precoLitro = recebeNumeroDecimal("Digite o preço do combustível no posto")
 var precoCombustivelTrajeto = distancia*precoLitro/consumo
 //chamando a função pra pedir o preço do estacionamento
-mensagem = "Digite o preço do estacionamento"
-var precoEstacionamento = recebeNumeroDecimal()
+var precoEstacionamento = recebeNumeroDecimal("Digite o preço do estacionamento")
 var precoTotalCarro = precoCombustivelTrajeto + precoEstacionamento
 
 document.write(`
-Preço do combustível no trajeto: R$  ${precoCombustivelTrajeto.toFixed(2).replace(".",",")}
+Preço do combustível no trajeto: R$ ${precoCombustivelTrajeto.toFixed(2).replace(".",",")}
 <br>
 Preço do estacionamento: R$ ${precoEstacionamento.toFixed(2).replace(".",",")}
 <br>

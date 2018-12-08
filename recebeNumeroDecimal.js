@@ -1,4 +1,3 @@
-var mensagem
-function recebeNumeroDecimal() { 
-    return parseFloat(prompt(mensagem).replace(",","."))
+function recebeNumeroDecimal(mensagemDoPopup) { 
+    return parseFloat(prompt(mensagemDoPopup).replace(",","."))
 }
