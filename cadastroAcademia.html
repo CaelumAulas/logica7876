@@ -1,26 +1,33 @@
 <meta charset="utf-8">
-
-<h3>Cadastro Academia</h3>
 <script src="recebeNumeroDecimal.js"></script>
 <!-- importando função de cálculo de idade -->
 <script src="http://192.168.1.149:8080/libIdade.js"></script>
+<script src="http://192.168.1.149:8080/libBrasil.js"></script>
+<h3>Cadastro Academia</h3>
+Nome: <input id="campoNome"><br>
+Altura: <input id="campoAltura"> m<br>
+Peso: <input id="campoPeso"> kg<br>
+Data de Nascimento: <input id="campoData"> (dd/mm/aaaa) <br><br>
+<button onclick="guardaDados()">Enviar</button>
 <script>
-var nome = prompt("Digite o nome")
-var altura = recebeNumeroDecimal("Digite a altura em metros")
-var peso = recebeNumeroDecimal("Digite o peso em quilos")
+    function guardaDados() {
+        var nome = campoNome.value
+        var altura = parseFloatBrasil(campoAltura.value)
+        var peso = parseFloatBrasil(campoPeso.value)
 
-var dataNascimento = prompt("Digite a data de nascimento (dd/mm/aaaa)")
-var dataSeparada = dataNascimento.split("/")
+        var dataNascimento = campoData.value
+        var dataSeparada = dataNascimento.split("/")
 
-var diaNascimento = dataSeparada[0]
-var mesNascimento = dataSeparada[1]
-var anoNascimento = dataSeparada[2]
+        var diaNascimento = dataSeparada[0]
+        var mesNascimento = dataSeparada[1]
+        var anoNascimento = dataSeparada[2]
 
-var idade = calculaIdade(diaNascimento,mesNascimento,anoNascimento)
+        var idade = calculaIdade(diaNascimento,mesNascimento,anoNascimento)
 
-document.write("Nome: " + nome)
-document.write("<br>Altura: "+ altura.toFixed(2).replace(".",",") + "m")
-document.write("<br>Peso: "+ peso.toFixed(2).replace(".",",") + "kg")
-document.write("<br>Data de Nascimento: "+ dataNascimento)
-document.write("<br>Idade: "+idade+"anos")
+        document.write("Nome: " + nome)
+        document.write("<br>Altura: "+ formataFloatBrasil(altura) + "m")
+        document.write("<br>Peso: "+ formataFloatBrasil(peso) + "kg")
+        document.write("<br>Data de Nascimento: "+ dataNascimento)
+        document.write("<br>Idade: "+idade+"anos")
+    }
 </script>
