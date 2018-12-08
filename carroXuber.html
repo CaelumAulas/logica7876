@@ -4,6 +4,9 @@
 <!-- importando função recebeNumeroDecimal() -->
 <script src="recebeNumeroDecimal.js"></script>
 <script src="http://192.168.1.149:8080/libRelogio.js"></script>
+<!-- importando função formataPreco() -->
+<script src="formataPreco.js"></script>
+
 <script>
 //chamando a função pra pedir a distância
 //mensagem = "Digite a distância em km"
@@ -17,7 +20,7 @@ var precoTotalUber = 2 + (1.4*distancia) + (0.26*tempoEmMinutos)
 document.write(`
 Tempo: ${formataRelogio(tempoEmMinutos)}
 <br>
-Preço total: R$ ${precoTotalUber.toFixed(2).replace(".",",")}
+Preço total: ${formataPreco(precoTotalUber)}
 `)
 </script>
 <h4>Carro</h4>
@@ -32,10 +35,10 @@ var precoEstacionamento = recebeNumeroDecimal("Digite o preço do estacionamento
 var precoTotalCarro = precoCombustivelTrajeto + precoEstacionamento
 
 document.write(`
-Preço do combustível no trajeto: R$ ${precoCombustivelTrajeto.toFixed(2).replace(".",",")}
+Preço do combustível no trajeto: ${formataPreco(precoCombustivelTrajeto)}
 <br>
-Preço do estacionamento: R$ ${precoEstacionamento.toFixed(2).replace(".",",")}
+Preço do estacionamento: ${formataPreco(precoEstacionamento)}
 <br>
-Preço total: R$ ${precoTotalCarro.toFixed(2).replace(".",",")}
+Preço total: ${formataPreco(precoTotalCarro)}
 `)
 </script>
