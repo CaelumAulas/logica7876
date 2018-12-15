@@ -1,8 +1,10 @@
 <meta charset="utf-8">
 <script src="recebeNumeroDecimal.js"></script>
 <!-- importando função de cálculo de idade -->
-<script src="http://192.168.1.149:8080/libIdade.js"></script>
-<script src="http://192.168.1.149:8080/libBrasil.js"></script>
+<script src="http://192.168.0.18:8080/libIdade.js"></script>
+<script src="http://192.168.0.18:8080/libBrasil.js"></script>
+<!-- importando função de imprimir texto no final da página -->
+<script src="http://192.168.0.18:8080/mostra.js"></script>
 <h3>Cadastro Academia</h3>
 Nome: <input id="campoNome"><br>
 Altura: <input id="campoAltura"> m<br>
@@ -11,23 +13,33 @@ Data de Nascimento: <input id="campoData"> (dd/mm/aaaa) <br><br>
 <button onclick="guardaDados()">Enviar</button>
 <script>
     function guardaDados() {
+        //pega os dados dos campos
         var nome = campoNome.value
         var altura = parseFloatBrasil(campoAltura.value)
         var peso = parseFloatBrasil(campoPeso.value)
-
         var dataNascimento = campoData.value
-        var dataSeparada = dataNascimento.split("/")
 
+        //processa dados
+        var dataSeparada = dataNascimento.split("/")
         var diaNascimento = dataSeparada[0]
         var mesNascimento = dataSeparada[1]
         var anoNascimento = dataSeparada[2]
 
         var idade = calculaIdade(diaNascimento,mesNascimento,anoNascimento)
 
-        document.write("Nome: " + nome)
-        document.write("<br>Altura: "+ formataFloatBrasil(altura) + "m")
-        document.write("<br>Peso: "+ formataFloatBrasil(peso) + "kg")
-        document.write("<br>Data de Nascimento: "+ dataNascimento)
-        document.write("<br>Idade: "+idade+"anos")
+        //limpa os campos
+        campoNome.value = ""
+        campoAltura.value = ""
+        campoPeso.value = ""
+        campoData.value = ""
+
+        //imprime na tela
+        mostraNoFinal(`
+        Nome: ${nome}
+        <br>Altura: ${formataFloatBrasil(altura)}m
+        <br>Peso: ${formataFloatBrasil(peso)}kg
+        <br>Data de Nascimento: ${dataNascimento}
+        <br>Idade: ${idade}anos
+        `)
     }
 </script>
