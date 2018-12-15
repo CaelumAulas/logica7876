@@ -2,10 +2,7 @@
 <h3>Anos da Copa</h3>
 <script src="http://192.168.0.18:8080/pegaPaisCopa.js"></script>
 <script>
-    var anoCopa = 1930
-    
-    while(anoCopa <= 2018) {
+    for (var anoCopa = 1930 ; anoCopa <= 2018 ; anoCopa = anoCopa+4) {
         document.write(`${anoCopa} - ${pegaPaisCopa(anoCopa)} <br>`)
-        anoCopa = anoCopa+4
-   }
+    }
 </script>
