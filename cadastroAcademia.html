@@ -13,6 +13,7 @@ Data de Nascimento: <input id="campoData"> (dd/mm/aaaa) <br>
 <input type="checkbox" id="campoSaude"> Tem problemas cardíacos <br><br>
 <button onclick="guardaDados()">Enviar</button>
 <script>
+    var numeroDaFicha = 0
     function guardaDados() {
         //pega os dados dos campos
         var nome = campoNome.value
@@ -22,6 +23,7 @@ Data de Nascimento: <input id="campoData"> (dd/mm/aaaa) <br>
         var temProblemasCardiacos = campoSaude.checked
 
         //processa dados
+        numeroDaFicha = numeroDaFicha+1
         var dataSeparada = dataNascimento.split("/")
         var diaNascimento = dataSeparada[0]
         var mesNascimento = dataSeparada[1]
@@ -47,7 +49,8 @@ Data de Nascimento: <input id="campoData"> (dd/mm/aaaa) <br>
 
         //imprime na tela
         mostraNoFinal(`
-        Nome: ${nome}
+        Número: ${numeroDaFicha}
+        <br>Nome: ${nome}
         <br>Altura: ${formataFloatBrasil(altura)}m
         <br>Peso: ${formataFloatBrasil(peso)}kg
         <br>Data de Nascimento: ${dataNascimento}
