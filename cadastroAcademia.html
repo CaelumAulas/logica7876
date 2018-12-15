@@ -15,6 +15,10 @@ Data de Nascimento: <input id="campoData"> (dd/mm/aaaa) <br>
 <script>
     var numeroDaFicha = 0
     function guardaDados() {
+        if (numeroDaFicha == 0) {
+            mostraNoFinal("<h3>Fichas:</h3>")
+        }
+
         //pega os dados dos campos
         var nome = campoNome.value
         var altura = parseFloatBrasil(campoAltura.value)
