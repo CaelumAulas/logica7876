@@ -9,7 +9,8 @@
 Nome: <input id="campoNome"><br>
 Altura: <input id="campoAltura"> m<br>
 Peso: <input id="campoPeso"> kg<br>
-Data de Nascimento: <input id="campoData"> (dd/mm/aaaa) <br><br>
+Data de Nascimento: <input id="campoData"> (dd/mm/aaaa) <br>
+<input type="checkbox" id="campoSaude"> Tem problemas cardíacos <br><br>
 <button onclick="guardaDados()">Enviar</button>
 <script>
     function guardaDados() {
@@ -18,20 +19,29 @@ Data de Nascimento: <input id="campoData"> (dd/mm/aaaa) <br><br>
         var altura = parseFloatBrasil(campoAltura.value)
         var peso = parseFloatBrasil(campoPeso.value)
         var dataNascimento = campoData.value
-
+        var temProblemasCardiacos = campoSaude.checked
         //processa dados
         var dataSeparada = dataNascimento.split("/")
         var diaNascimento = dataSeparada[0]
         var mesNascimento = dataSeparada[1]
         var anoNascimento = dataSeparada[2]
-
         var idade = calculaIdade(diaNascimento,mesNascimento,anoNascimento)
+        var textoSobreAcompanhamentoMedico
+            //SE tem problemas cardiacos
+        if (temProblemasCardiacos) {
+            textoSobreAcompanhamentoMedico ="Precisa de acompanhamento médico!"
+        }
+            //SE NÃO tem problemas cardíacos
+        if (!temProblemasCardiacos) {
+            textoSobreAcompanhamentoMedico = "Não necessita acompanhamento médico"
+        }
 
         //limpa os campos
         campoNome.value = ""
         campoAltura.value = ""
         campoPeso.value = ""
         campoData.value = ""
+        campoSaude.checked = false
 
         //imprime na tela
         mostraNoFinal(`
@@ -40,6 +50,7 @@ Data de Nascimento: <input id="campoData"> (dd/mm/aaaa) <br><br>
         <br>Peso: ${formataFloatBrasil(peso)}kg
         <br>Data de Nascimento: ${dataNascimento}
         <br>Idade: ${idade}anos
+        <br>${textoSobreAcompanhamentoMedico}
         `)
     }
 </script>
