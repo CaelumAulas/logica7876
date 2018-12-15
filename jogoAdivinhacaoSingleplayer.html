@@ -16,8 +16,14 @@
         var numeroJogador = recebeNumeroDecimal("Adivinhe um número de 1 a 100") 
 
         //processa os valores
+        var numeroValidacoes = 0
             //ENQUANTO numero invalido (NAO eh um numero)
         while (isNaN(numeroJogador)) {
+            numeroValidacoes = numeroValidacoes + 1
+            if (numeroValidacoes == 5) {
+                mostraNoFinal(`Jogo ${quantidadeDeJogos} inválido`)
+                return // sai do função
+            }
             alert("Não é um número válido!")
             numeroJogador = recebeNumeroDecimal("Adivinhe um número de 1 a 100")
         }
