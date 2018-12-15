@@ -16,11 +16,13 @@
         var numeroJogador = recebeNumeroDecimal("Adivinhe um número de 1 a 100") 
 
         //processa os valores
-            //SE numero invalido (NAO eh um numero)
-        if (isNaN(numeroJogador)) {
+            //ENQUANTO numero invalido (NAO eh um numero)
+        while (isNaN(numeroJogador)) {
             alert("Não é um número válido!")
             numeroJogador = recebeNumeroDecimal("Adivinhe um número de 1 a 100")
         }
+        
+
         var textoResultado
             //SE iguais
         if (numeroComputador == numeroJogador) {
