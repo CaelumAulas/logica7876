@@ -1,0 +1,29 @@
+<meta charset="utf-8">
+
+<h1>Jogo Adivinhação</h1>
+<button onclick="jogo()">Iniciar</button>
+
+<script src="mostra.js"></script>
+<script src="recebeNumeroDecimal.js"></script>
+<script>
+    var quantidadeDeJogos=0
+    function jogo() {
+        quantidadeDeJogos = quantidadeDeJogos+1
+
+        var numeroComputador = parseInt(Math.random()*100)+1
+        var numeroJogador = recebeNumeroDecimal("Adivinhe um número de 1 a 100")
+        var textoResultado
+        //SE iguais
+        if (numeroComputador == numeroJogador) {
+            textoResultado = "Parabéns! Você Acertou!!"
+        } else { //SENÃO
+            textoResultado = "Você errrrrrrou!"
+        }
+
+        mostraNoFinal(`
+        Jogo ${quantidadeDeJogos}<br>
+        ${textoResultado}<br>
+        O número era ${numeroComputador}.
+        `)
+    }
+</script>
