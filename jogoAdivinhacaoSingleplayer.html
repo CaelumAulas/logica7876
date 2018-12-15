@@ -9,23 +9,27 @@
     var quantidadeDeJogos=0
     function jogo() {
         quantidadeDeJogos = quantidadeDeJogos+1
-
+        
+        //pega os valores
         var numeroComputador = parseInt(Math.random()*100)+1
         console.log(numeroComputador)
         var numeroJogador = recebeNumeroDecimal("Adivinhe um número de 1 a 100") 
 
-
-
-
-
+        //processa os valores
+            //SE numero invalido (NAO eh um numero)
+        if (isNaN(numeroJogador)) {
+            alert("Não é um número válido!")
+            numeroJogador = recebeNumeroDecimal("Adivinhe um número de 1 a 100")
+        }
         var textoResultado
-        //SE iguais
+            //SE iguais
         if (numeroComputador == numeroJogador) {
             textoResultado = "Parabéns! Você Acertou!!"
         } else { //SENÃO
             textoResultado = "Você errrrrrrou!"
         }
 
+        //imprime resposta
         mostraNoFinal(`
         Jogo ${quantidadeDeJogos}<br>
         ${textoResultado}<br>
