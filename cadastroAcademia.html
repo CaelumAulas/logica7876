@@ -20,19 +20,21 @@ Data de Nascimento: <input id="campoData"> (dd/mm/aaaa) <br>
         var peso = parseFloatBrasil(campoPeso.value)
         var dataNascimento = campoData.value
         var temProblemasCardiacos = campoSaude.checked
+
         //processa dados
         var dataSeparada = dataNascimento.split("/")
         var diaNascimento = dataSeparada[0]
         var mesNascimento = dataSeparada[1]
         var anoNascimento = dataSeparada[2]
         var idade = calculaIdade(diaNascimento,mesNascimento,anoNascimento)
+        var ehMenorDeIdade = idade < 18
         var textoSobreAcompanhamentoMedico
-            //SE tem problemas cardiacos
-        if (temProblemasCardiacos) {
+            //SE tem problemas cardiacos OU eh menor de idade
+        if (temProblemasCardiacos || ehMenorDeIdade) {
             textoSobreAcompanhamentoMedico ="Precisa de acompanhamento médico!"
         }
-            //SE NÃO tem problemas cardíacos
-        if (!temProblemasCardiacos) {
+            //SE NÃO tem problemas cardíacos E  NAO eh menor de idade
+        if (!temProblemasCardiacos && !ehMenorDeIdade) {
             textoSobreAcompanhamentoMedico = "Não necessita acompanhamento médico"
         }
 
