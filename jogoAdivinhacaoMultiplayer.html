@@ -4,20 +4,19 @@
 <button onclick="jogo()">Iniciar</button>
 
 <script src="mostra.js"></script>
+<script src="recebeNumeroDecimal.js"></script>
 <script>
     var quantidadeDeJogos=0
     function jogo() {
         quantidadeDeJogos = quantidadeDeJogos+1
 
-        var jogador1 = prompt("Escolha um número")
-        var jogador2 = prompt("Adivinhe um número")
+        var jogador1 = recebeNumeroDecimal("Escolha um número")
+        var jogador2 = recebeNumeroDecimal("Adivinhe um número")
         var textoResultado
         //SE iguais
         if (jogador1 == jogador2) {
             textoResultado = "Parabéns! Você Acertou!!"
-        }
-        //SE diferentes
-        if (jogador1 != jogador2) {
+        } else { //SENÃO
             textoResultado = "Você errrrrrrou!"
         }
 
